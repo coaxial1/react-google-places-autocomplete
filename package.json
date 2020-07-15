@@ -11,7 +11,8 @@
     "watch": "preconstruct watch",
     "build": "preconstruct build",
     "postbuild": "node ./build-utils/minifyCSS.js && cp ./src/index.d.ts ./dist/index.d.ts",
-    "release": "yarn build && npm publish"
+    "release": "yarn build && npm publish",
+    "prepare":"npm run build"
   },
   "pre-commit": [
     "lint"
