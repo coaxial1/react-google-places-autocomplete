@@ -38,6 +38,7 @@ class GooglePlacesAutocomplete extends React.Component {
       suggestions: [],
       timeoutId: null,
       value: props.initialValue,
+      displayNotFound: false
     };
   }
 
@@ -115,7 +116,7 @@ class GooglePlacesAutocomplete extends React.Component {
 
   changeValue = (value) => {
     const { minLengthAutocomplete } = this.props;
-    this.setState({ value });
+    this.setState({ value, displayNotFound: false });
 
     if (value.length > minLengthAutocomplete) {
       this.fetchSuggestions(value);
@@ -148,6 +149,7 @@ class GooglePlacesAutocomplete extends React.Component {
 
     this.setState({
       loading: false,
+      displayNotFound: true,
       suggestions: suggestions || [],
     });
   }
@@ -289,8 +291,8 @@ class GooglePlacesAutocomplete extends React.Component {
       );
     }
 
-    if (suggestions.length === 0) 
-      return <div
+    if (suggestions.length === 0) {
+      return !this.state.displayNotFound ? null : <div
         id={`${idPrefix}-google-places-suggestions-container`}
         className={suggestionsClassNames.container || 'google-places-autocomplete__suggestions-container'}
         style={suggestionsStyles.container}
@@ -304,6 +306,7 @@ class GooglePlacesAutocomplete extends React.Component {
               "No results found ... Try another query."
             </div>
        </div>;
+    }
 
     return (
       <div
