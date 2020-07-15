@@ -37,6 +37,7 @@ interface GooglePlacesAutocompleteProps {
   displayFromSuggestionSelected?: (suggestion: suggestionType) => JSX.Element | string;
   idPrefix?: string;
   initialValue?: string;
+  noResultsMessage?: string;
   inputClassName?: string;
   inputStyle?: object;
   loader?: JSX.Element;
