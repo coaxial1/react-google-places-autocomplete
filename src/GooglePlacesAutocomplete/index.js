@@ -292,7 +292,7 @@ class GooglePlacesAutocomplete extends React.Component {
     }
 
     if (suggestions.length === 0) {
-      return !this.state.displayNotFound ? null : <div
+      return !this.state.displayNotFound || !this.props.noResultsMessage ? null : <div
         id={`${idPrefix}-google-places-suggestions-container`}
         className={suggestionsClassNames.container || 'google-places-autocomplete__suggestions-container'}
         style={suggestionsStyles.container}
@@ -303,7 +303,7 @@ class GooglePlacesAutocomplete extends React.Component {
               style={suggestionsStyles.suggestion}
               role="presentation"
             >
-              "No results found ... Try another query."
+               {this.props.noResultsMessage}
             </div>
        </div>;
     }
