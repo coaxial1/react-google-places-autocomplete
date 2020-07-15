@@ -289,7 +289,21 @@ class GooglePlacesAutocomplete extends React.Component {
       );
     }
 
-    if (suggestions.length === 0) return null;
+    if (suggestions.length === 0) 
+      return <div
+        id={`${idPrefix}-google-places-suggestions-container`}
+        className={suggestionsClassNames.container || 'google-places-autocomplete__suggestions-container'}
+        style={suggestionsStyles.container}
+      ><div
+              id={`${idPrefix}-google-places-autocomplete-suggestion--${index}`}
+              key={0}
+              className={`${suggestionsClassNames.suggestion || 'google-places-autocomplete__suggestion'} ${activeSuggestion === index ? suggestionsClassNames.suggestionActive || 'google-places-autocomplete__suggestion--active' : ''}`}
+              style={suggestionsStyles.suggestion}
+              role="presentation"
+            >
+              "No results found ... Try another query."
+            </div>
+       </div>;
 
     return (
       <div
