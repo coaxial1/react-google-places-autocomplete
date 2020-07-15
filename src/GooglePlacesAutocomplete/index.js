@@ -297,9 +297,9 @@ class GooglePlacesAutocomplete extends React.Component {
         className={suggestionsClassNames.container || 'google-places-autocomplete__suggestions-container'}
         style={suggestionsStyles.container}
       ><div
-              id={`${idPrefix}-google-places-autocomplete-suggestion--${index}`}
+              id={`${idPrefix}-google-places-autocomplete-suggestion--0`}
               key={0}
-              className={`${suggestionsClassNames.suggestion || 'google-places-autocomplete__suggestion'} ${activeSuggestion === index ? suggestionsClassNames.suggestionActive || 'google-places-autocomplete__suggestion--active' : ''}`}
+              className={`${suggestionsClassNames.suggestion || 'google-places-autocomplete__suggestion'}`}
               style={suggestionsStyles.suggestion}
               role="presentation"
             >
